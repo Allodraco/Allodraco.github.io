@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
+  <head>
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+ </head>
 
-  <h1>Testing</h1>
-
-  <p>Website changes are fun</p>
+<body>
+    <h1>Welcome to the Meat Farm motherfuckers</h1>
+    <div>
+        <div id="info">
+            <span>Meat: </span><span id="meat">0</span>
+            <button onclick="clickMeat()">Click</button><br>
+            <span>Current click value: </span><span id="clickvalue">1</span>
+        </div>
+        <div id="main">
+                <span>Meat per Second: </span><span id="mps">0</span>
+        </div>
+        <div id="shopmenu">
+            <div id="upgrades">hhh</div>
+                <button onclick="buyUpgrade(1)">upgrade click</button>
+            <div id="shopsub">
+                <div id="shopitems">
+                    <span>Tanemon: </span><span id="farms">0</span><br>
+                    <button onclick="buyFarm()">click farm</button>
+                    <span>Cost: </span><span id="farmCost">10</span><br>
+                    <span>Adds 1 Meat/s</span>
+                </div>
+            </div>
+            <div id="shopsub">
+                <div id="shopitems">
+                    <span>Palmon: </span><span id="farms2">0</span><br>
+                    <button onclick="buyFarm2()">click farm</button>
+                    <span>Cost: </span><span id="farm2Cost">150</span><br>
+                    <span>Adds 10 Meat/s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="main.js"></script>
 </html>
