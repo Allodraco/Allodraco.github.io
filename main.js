@@ -1,62 +1,80 @@
 /*Variables*/
-var meat = 0;
+var player = {
+    meat: 0
+}
 
-var clickBase = 1;
-var clickMod = 1;
-var clickadd = clickBase * clickMod;
+var click = {
+    base: 1,
+    multiplier: 1,
+}
 
-var farms = 0;
-var farmMod = 1;
+var tanemon = {
+    count: 0,
+    base: 1,
+    multiplier: 1,
+    cost: 10
+}
 
-var farms2 = 0;
-var farmMod2 = 10;
+var palmon ={
+    count: 0,
+    base: 10,
+    multiplier: 1,
+    cost: 150
+}
 
 function baseIncrease(number){
-    meat += number
-    document.getElementById("meat").innerHTML = Math.round(meat*1000000)/1000000;
+    player.meat += number
+    document.getElementById("meat").innerHTML = "Meat: " + Math.round(player.meat*1000000)/1000000;
 };
 
-document.getElementById("clickvalue").innerHTML = clickadd;
 function clickMeat(){
-    baseIncrease(clickadd);
+    baseIncrease(click.base * click.multiplier);
 };
 
 /*Buildings*/
-function buyFarm(){
-    var farmCost = Math.floor(10 * Math.pow(1.3,farms));
-    if(meat >= farmCost){
-        farms += 1;
-    	meat = meat - farmCost;
-        document.getElementById('farms').innerHTML = farms;
-        document.getElementById('meat').innerHTML = meat;
+function buyTanemon(){
+    if(player.meat >= tanemon.cost){
+        tanemon.count += 1;
+    	player.meat = player.meat - tanemon.cost;
+        document.getElementById('tanemon').innerHTML = tanemon.count;
+        document.getElementById('meat').innerHTML = "Meat: " + player.meat;
+        tanemon.cost = Math.floor(tanemon.cost * Math.pow(1.25, 1));
+        document.getElementById('tanemonCost').innerHTML = tanemon.cost; 
     };
-    var nextCost = Math.floor(10 * Math.pow(1.3,farms));
-    document.getElementById('farmCost').innerHTML = nextCost; 
     updateMPS()
 };
 
-function buyFarm2(){
-    var farm2Cost = Math.floor(150 * Math.pow(1.3,farms2));
-    if(meat >= farm2Cost){
-        farms2 += 1;
-    	meat = meat - farm2Cost;
-        document.getElementById('farms2').innerHTML = farms2;
-        document.getElementById('meat').innerHTML = meat;
+function buyPalmon(){
+    if(player.meat >= palmon.cost){
+        palmon.count += 1;
+    	player.meat = player.meat - palmon.cost;
+        document.getElementById('palmon').innerHTML = palmon.count;
+        document.getElementById('meat').innerHTML = "Meat: " + player.meat;
+        palmon.cost = Math.floor(palmon.cost * Math.pow(1.25, 1));
+        document.getElementById('palmonCost').innerHTML = palmon.cost; 
     };
-    var nextCost = Math.floor(150 * Math.pow(1.3,farms2));
-    document.getElementById('farm2Cost').innerHTML = nextCost; 
     updateMPS();
 };
 
 /*Upgrades*/
-
+function upgrades(id){
+    if(id = 1){
+        if(player.meat >= 10){
+            player.meat -= 10;
+            click.base += 1;
+            document.getElementById('meat').innerHTML = "Meat: " + player.meat;
+            document.getElementById("clickvalue").innerHTML = click.base * click.multiplier;
+        }
+    }
+};
 
 /*Logic*/
 function updateMPS(){
-    document.getElementById('mps').innerHTML = (farms*farmMod)+(farms2*farmMod2);
-}
+    document.getElementById('mps').innerHTML = ((tanemon.base*tanemon.count)*tanemon.multiplier)
+    +((palmon.base*palmon.count)*palmon.multiplier) + " mps";
+};
 
 window.setInterval(function(){
-    baseIncrease((farms*farmMod))
-    baseIncrease((farms2*farmMod2))
+    baseIncrease(((tanemon.base*tanemon.count)*tanemon.multiplier))
+    baseIncrease(((palmon.base*palmon.count)*palmon.multiplier))
 }, 1000);

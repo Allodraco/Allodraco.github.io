@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="interface.css" />
+    <link rel="stylesheet" type="text/css" href="interface.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  </head>
-
 <body>
-    <h1>Welcome to the Meat Farm motherfuckers</h1>
+    <h1>File City; Population, 1</h1>
     <div>
         <div id="info">
-            <span>Meat: </span><span id="meat">0</span>
-            <button onclick="clickMeat()">Click</button><br>
-            <span>Current click value: </span><span id="clickvalue">1</span>
+            <h2 id="meat">Meat: 0</h2>
+            <br>
+            <button id="clicker" class="btn btn-link" onclick="clickMeat()"><img src="https://www.grindosaur.com/img/games/digimon-world/icons/39-meat-icon.png"></button><br>
+            <span>Current click value: </span><span id="clickvalue">1</span><br>
+            <span>Meat per Second: </span><span id="mps">0 mps</span>
         </div>
-        <div id="main">
-                <span>Meat per Second: </span><span id="mps">0</span>
+
+        <div id="main">   
         </div>
+
         <div id="shopmenu">
-            <div id="upgrades">hhh</div>
-                <button onclick="buyUpgrade(1)">upgrade click</button>
+
+            <div id="upgrades"><h2>Upgrades:</h2></div>
+                <button style="margin-bottom: 10px;" type="button" class="btn btn-success" onclick="upgrades(1)">upgrade test</button>
+
             <div id="shopsub">
                 <div id="shopitems">
-                    <span>Tanemon: </span><span id="farms">0</span><br>
-                    <button onclick="buyFarm()">click farm</button>
-                    <span>Cost: </span><span id="farmCost">10</span><br>
+                    <span>Tanemon: </span><span id="tanemon">0</span>
+                    <button style="float:right; height:60px; width:100px" type="button" class="btn btn-success" onclick="buyTanemon()">Buy</button><br>
+                    <span id="costdesc">Cost: </span><span id="tanemonCost">10</span><br>
                     <span>Adds 1 Meat/s</span>
                 </div>
             </div>
+
             <div id="shopsub">
                 <div id="shopitems">
-                    <span>Palmon: </span><span id="farms2">0</span><br>
-                    <button onclick="buyFarm2()">click farm</button>
-                    <span>Cost: </span><span id="farm2Cost">150</span><br>
+                    <span>Palmon: </span><span id="palmon">0</span>
+                    <button style="float:right; height:60px; width:100px" type="button" class="btn btn-success" onclick="buyPalmon()">Buy</button><br>
+                    <span>Cost: </span><span id="palmonCost">150</span><br>
                     <span>Adds 10 Meat/s</span>
                 </div>
             </div>
@@ -38,4 +44,6 @@
     </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
