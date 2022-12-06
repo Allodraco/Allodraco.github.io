@@ -41,7 +41,7 @@ function buyTanemon(){
         tanemon.cost = Math.floor(tanemon.cost * Math.pow(1.25, 1));
         document.getElementById('tanemonCost').innerHTML = tanemon.cost; 
     };
-    updateMPS()
+    updateMPS();
 };
 
 function buyPalmon(){
