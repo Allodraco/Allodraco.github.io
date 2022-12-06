@@ -22,6 +22,13 @@ var palmon ={
     cost: 150
 }
 
+var save = {
+    player: player,
+    click: click,
+    tanemon: tanemon,
+    palmon: palmon
+}
+
 function baseIncrease(number){
     player.meat += number
     document.getElementById("meat").innerHTML = "Meat: " + Math.round(player.meat*1000000)/1000000;
@@ -68,6 +75,8 @@ function upgrades(id){
     }
 };
 
+window.onload = loadGame
+
 /*Logic*/
 function updateMPS(){
     document.getElementById('mps').innerHTML = ((tanemon.base*tanemon.count)*tanemon.multiplier)
@@ -78,3 +87,38 @@ window.setInterval(function(){
     baseIncrease(((tanemon.base*tanemon.count)*tanemon.multiplier))
     baseIncrease(((palmon.base*palmon.count)*palmon.multiplier))
 }, 1000);
+
+function saveFile(){
+    var variables = ['player', 'click', 'tanemon', 'palmon'];
+    variables.forEach(function(name) {
+    save[name] = window[name];
+    });
+    localStorage.setItem("save",JSON.stringify(save));
+}
+
+function loadGame(){
+    var savegame = JSON.parse(localStorage.getItem("save")); 
+    if (typeof savegame.player !== "undefined") {
+        player = savegame.player;
+        document.getElementById('meat').innerHTML = "Meat: " + player.meat;
+    }
+    if (typeof savegame.click !== "undefined") {
+        click = savegame.click;
+        document.getElementById("clickvalue").innerHTML = click.base * click.multiplier;
+    }
+    if (typeof savegame.tanemon !== "undefined") {
+        tanemon = savegame.tanemon;
+        document.getElementById('tanemon').innerHTML = tanemon.count;
+        document.getElementById('tanemonCost').innerHTML = tanemon.cost;
+    }
+    if (typeof savegame.palmon !== "undefined") {
+        palmon = savegame.palmon; 
+        document.getElementById('palmon').innerHTML = palmon.count;
+        document.getElementById('palmonCost').innerHTML = palmon.cost;
+    }
+    updateMPS();
+}
+
+function deleteSave(){
+    localStorage.removeItem("save")
+}

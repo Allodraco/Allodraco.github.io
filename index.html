@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/interface.css"/>
+    <link rel="stylesheet" type="text/css" href="interface.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  </head>
 <body>
@@ -10,12 +10,15 @@
         <div id="info">
             <h2 id="meat">Meat: 0</h2>
             <br>
-            <button id="clicker" class="btn btn-link" onclick="clickMeat()"><img src="https://www.grindosaur.com/img/games/digimon-world/icons/39-meat-icon.png"></button><br>
+            <button id="clicker" class="btn btn-link" onclick="clickMeat()"><img style="height:125px;" src="https://www.grindosaur.com/img/games/digimon-world/icons/39-meat-icon.png"></button><br>
             <span>Current click value: </span><span id="clickvalue">1</span><br>
             <span>Meat per Second: </span><span id="mps">0 mps</span>
         </div>
 
-        <div id="main">   
+        <div id="main">  
+            <button type="button" class="btn btn-success" onclick="saveFile()">Save</button><br>
+            <button type="button" class="btn btn-success" onclick="loadGame()">Load</button><br>
+            <button type="button" class="btn btn-success" onclick="deleteSave()">Delete</button><br>
         </div>
 
         <div id="shopmenu">
@@ -43,7 +46,7 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/main.js"></script>
+<script type="text/javascript" src="main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
