@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  </head>
 <body>
+    
     <h1>File City; Population, 1</h1>
     <div>
         <div id="info">
@@ -14,15 +15,15 @@
             <span>Current click value: </span><span id="clickvalue">1</span><br>
             <span>Meat per Second: </span><span id="mps">0 mps</span>
         </div>
-
-        <div id="main">  
-            <button type="button" class="btn btn-success" onclick="saveFile()">Save</button><br>
-            <button type="button" class="btn btn-success" onclick="loadGame()">Load</button><br>
-            <button type="button" class="btn btn-success" onclick="deleteSave()">Delete</button><br>
+        <div id="digimoninfo">
+            <h2>Digimon</h2>
+            <div class="digimonstats">
+                <span>Hitpoints: </span><span id="digihp">0</span><br>
+                <span>Attack: </span><span id="digiatk">0</span><br>
+                <span>Defense: </span><span id="digidef">0</span>
+            </div>
         </div>
-
         <div id="shopmenu">
-
             <div id="upgrades"><h2>Upgrades:</h2></div>
                 <button style="margin-bottom: 10px;" type="button" class="btn btn-success" onclick="upgrades(1)">upgrade test</button>
 
@@ -45,7 +46,13 @@
             </div>
         </div>
     </div>
+    
 </body>
+<footer>
+    <button type="button" class="btn btn-success" onclick="saveFile()">Save</button>
+    <button type="button" class="btn btn-success" onclick="loadGame()">Load</button>
+    <button type="button" class="btn btn-success" onclick="deleteSave()">Delete</button>
+</footer>
 <script type="text/javascript" src="main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

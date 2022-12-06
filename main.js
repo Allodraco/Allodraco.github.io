@@ -1,6 +1,13 @@
 /*Variables*/
 var player = {
-    meat: 0
+    meat: 0,
+    experience: 0
+}
+
+var digimon = {
+    hp: 10,
+    atk: 1,
+    def: 1
 }
 
 var click = {
@@ -87,6 +94,10 @@ window.setInterval(function(){
     baseIncrease(((tanemon.base*tanemon.count)*tanemon.multiplier))
     baseIncrease(((palmon.base*palmon.count)*palmon.multiplier))
 }, 1000);
+
+window.setInterval(function(){
+    saveFile();
+}, 10000)
 
 function saveFile(){
     var variables = ['player', 'click', 'tanemon', 'palmon'];
